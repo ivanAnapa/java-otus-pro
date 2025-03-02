@@ -1,12 +1,11 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
-// https://mvnrepository.com/artifact/com.google.guava/guava
-    implementation("com.google.guava:guava:33.4.0-jre")
+    id("com.gradleup.shadow")
 }
 
 dependencies {
-    implementation ("com.google.guava:guava:33.4.0-jre")
+    implementation ("com.google.guava:guava")
 }
 
 tasks {
