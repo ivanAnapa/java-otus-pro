@@ -1,6 +1,8 @@
 rootProject.name = "java-otus-pro"
-include("hw01-gradle")
-
+include(
+    "hw01-gradle",
+    "hw02-generics"
+)
 
 pluginManagement {
     val jgitver: String by settings
@@ -16,7 +18,6 @@ pluginManagement {
         id("fr.brouillard.oss.gradle.jgitver") version jgitver
         id("io.spring.dependency-management") version dependencyManagement
         id("org.springframework.boot") version springframeworkBoot
-//        id("com.github.johnrengelman.shadow") version johnrengelmanShadow
         id("com.gradleup.shadow") version johnrengelmanShadow
         id("com.google.cloud.tools.jib") version jib
         id("com.google.protobuf") version protobufVer
