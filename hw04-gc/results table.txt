@@ -1,12 +1,18 @@
 **** Без оптимизации ****
 Запуск с дефолтными параметрами - spend msec:17319, sec:17
-256 Mb -
-512 Mb -
-1024 Mb -
-2048 Mb -
+256 M - spend msec:17921, sec:17
+512 M - spend msec:17589, sec:17
+1024 M - spend msec:17452, sec:17
+2048 M - spend msec:16645, sec:16
+4096 M - spend msec:16695, sec:16
+8192 M - spend msec:15779, sec:15
+12000 M - spend msec:15133, sec:15
 
 **** С оптимизацией ****
-256 Mb -
-512 Mb -
-1024 Mb -
-2048 Mb -
+256 Mb - spend msec:4208, sec:4
+512 Mb - spend msec:4182, sec:4
+1024 Mb - spend msec:4347, sec:4
+2048 Mb - spend msec:4113, sec:4
+4096 M - spend msec:4448, sec:4
+8192 M - spend msec:4826, sec:4
+12888 M - spend msec:5140, sec:5

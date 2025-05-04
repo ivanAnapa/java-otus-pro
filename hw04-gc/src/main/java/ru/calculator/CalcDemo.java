@@ -9,6 +9,9 @@ package ru.calculator;
 -Xlog:gc=debug:file=./logs/gc-%p-%t.log:tags,uptime,time,level:filecount=5,filesize=10m
 */
 
+// win:     java -XX:+PrintFlagsFinal -version | findstr Use | findstr GC
+// lin:     java -XX:+PrintFlagsFinal -version | grep Use | grep GC
+
 import java.time.LocalDateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
