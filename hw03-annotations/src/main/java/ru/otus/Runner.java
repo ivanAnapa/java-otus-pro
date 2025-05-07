@@ -60,7 +60,6 @@ public class Runner {
             method.invoke(obj);
         } catch (Exception e) {
             logger.error("Simple invocation failed", e);
-            System.out.println(e.getCause().getMessage());
         }
     }
 
@@ -71,7 +70,6 @@ public class Runner {
         } catch (Exception e) {
             countOfFailed++;
             logger.error("Invocation with counter failed", e);
-            System.out.println(e.getCause().getMessage());
         }
     }
 }
