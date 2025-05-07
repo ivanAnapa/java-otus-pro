@@ -1,7 +1,8 @@
 rootProject.name = "java-otus-pro"
 include(
     "hw01-gradle",
-    "hw02-generics"
+    "hw02-generics",
+    "hw03-annotations"
 )
 
 pluginManagement {
