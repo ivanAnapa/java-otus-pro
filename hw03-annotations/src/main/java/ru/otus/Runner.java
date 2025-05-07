@@ -1,5 +1,7 @@
 package ru.otus;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.otus.annotations.After;
 import ru.otus.annotations.Before;
 import ru.otus.annotations.Test;
@@ -9,6 +11,7 @@ import java.lang.reflect.Method;
 import java.util.Objects;
 
 public class Runner {
+    private static final Logger logger = LoggerFactory.getLogger(Runner.class);
 
     private int countOfExecuted;
     private int countOfPassed;
@@ -23,27 +26,29 @@ public class Runner {
         Method after = RunnerUtils.getMethodByAnnotation(methods, After.class);
 
         for (var test : tests) {
-            execute(getInstance(clazz), before, test, after);
+            execute(createInstance(clazz), before, test, after);
         }
 
         RunnerUtils.printResults(countOfExecuted, countOfPassed, countOfFailed);
     }
 
-    private <T> T getInstance(Class<T> clazz) {
+    private <T> T createInstance(Class<T> clazz) {
         try {
             return clazz.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Instance creation is failed", e);
         }
         return null;
     }
 
     private <T> void execute(T obj, Method before, Method test, Method after) {
         try {
-            if (Objects.nonNull(before)) invokeSimple(before, obj);
-            invokeWithCounter(test, obj);
+            if (Objects.nonNull(before)) {
+                invokeSimple(before, obj);
+                invokeWithCounter(test, obj);
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Execution failed", e);
         } finally {
             if (Objects.nonNull(after)) invokeSimple(after, obj);
             countOfExecuted++;
@@ -54,6 +59,7 @@ public class Runner {
         try {
             method.invoke(obj);
         } catch (Exception e) {
+            logger.error("Simple invocation failed", e);
             System.out.println(e.getCause().getMessage());
         }
     }
@@ -64,6 +70,7 @@ public class Runner {
             countOfPassed++;
         } catch (Exception e) {
             countOfFailed++;
+            logger.error("Invocation with counter failed", e);
             System.out.println(e.getCause().getMessage());
         }
     }
