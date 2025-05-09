@@ -3,7 +3,8 @@ include(
     "hw01-gradle",
     "hw02-generics",
     "hw03-annotations",
-    "hw04-gc"
+    "hw04-gc",
+    "hw05-AOP"
 )
 
 pluginManagement {
